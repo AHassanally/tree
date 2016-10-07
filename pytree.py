@@ -20,7 +20,7 @@ def print_directory(root, depth=0, last=False, parent=0):
     file_count = 0
     elements = listdir(root)
     elements.sort()
-    
+
     if(depth == 0):
         if(root[-1] == '/'):
             root = root[:-1]
@@ -35,7 +35,7 @@ def print_directory(root, depth=0, last=False, parent=0):
 
     for i, element in enumerate(elements):
         element = root + '/' + element
-        
+
         if (i == len(elements) - 1):
             is_last = True
             if(isdir(element)):
@@ -53,16 +53,16 @@ def print_directory(root, depth=0, last=False, parent=0):
 
     return (directory_count, file_count)
 
+
 # Printing and formatting of files in tree structure
 def print_file(filename, depth, last=False, previous_depth=0):
-    
     spacing = ("    " * previous_depth) + ('│   ' * (depth - previous_depth))
 
     if(last):
         indent = spacing + '└── '
     else:
         indent = spacing + '├── '
-    
+
     print(indent + basename(filename))
 
 # Set correct path as argument in main function and execute
